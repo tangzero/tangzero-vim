@@ -15,7 +15,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'haishanh/night-owl.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Add Haskell Language
 if g:tangzero_haskell_enabled
@@ -51,12 +51,13 @@ if g:tangzero_haskell_enabled
     let g:haskell_indent_before_where = 2
     let g:haskell_indent_case_alternative = 1
     let g:haskell_indent_let_no_in = 0
+    autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 endif
 
 " Go
 if g:tangzero_go_enabled
-	let g:go_def_mode = 'gopls'
-	let g:go_info_mode = 'gopls'
+    let g:go_def_mode = 'gopls'
+    let g:go_info_mode = 'gopls'
 endif
 
 " Rust

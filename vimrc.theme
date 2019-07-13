@@ -6,5 +6,8 @@ set noshowmode
 set number
 set cursorline 
 syntax enable
-colorscheme night-owl
+colorscheme dracula
+"colorscheme gruvbox
+
+"let g:gruvbox_contrast_dark = 'high'
 
