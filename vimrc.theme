@@ -1,0 +1,10 @@
+if (has("termguicolors"))
+	set termguicolors
+endif
+
+set noshowmode
+set number
+set cursorline 
+syntax enable
+colorscheme night-owl
+

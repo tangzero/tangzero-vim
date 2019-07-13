@@ -1,0 +1,66 @@
+call plug#begin()
+
+Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'neomake/neomake'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'haishanh/night-owl.vim'
+
+" Add Haskell Language
+if g:tangzero_haskell_enabled
+    Plug 'neovimhaskell/haskell-vim' 
+    Plug 'alx741/vim-hindent'
+    Plug 'alx741/vim-stylishask'
+endif
+
+" Add Go Language
+if g:tangzero_go_enabled
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+endif
+
+" Add Rust Language
+if g:tangzero_rust_enabled
+    Plug 'rust-lang/rust.vim'
+endif
+
+" Add Custom Plugins
+if filereadable(expand("~/.vimrc.local.plugins"))
+    source ~/.vimrc.local.plugins
+endif
+
+call plug#end()
+
+filetype plugin indent on 
+
+" Plugins Configuration
+
+" Haskell
+if g:tangzero_haskell_enabled
+    let g:haskell_indent_if = 2
+    let g:haskell_indent_before_where = 2
+    let g:haskell_indent_case_alternative = 1
+    let g:haskell_indent_let_no_in = 0
+endif
+
+
+" Go
+if g:tangzero_go_enabled
+	let g:go_def_mode = 'gopls'
+	let g:go_info_mode = 'gopls'
+endif
+
+" Rust
+if g:tangzero_rust_enabled
+    let g:rustfmt_autosave = 1
+endif
+
