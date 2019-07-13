@@ -52,7 +52,6 @@ if g:tangzero_haskell_enabled
     let g:haskell_indent_let_no_in = 0
 endif
 
-
 " Go
 if g:tangzero_go_enabled
 	let g:go_def_mode = 'gopls'
