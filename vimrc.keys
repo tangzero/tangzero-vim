@@ -2,22 +2,16 @@
 
 " Use SpaceBar as leader key
 let mapleader = '\<Space>'
-map <Space> <Leader>
-
-" Window management
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+map <silent> <Space> <Leader>
 
 " FZF   
-nmap <leader>ff :Files<CR>
-nmap <leader>fg :GitFiles<CR>
-nmap <leader>fb :Buffers<CR>
-nmap <leader>fw :Windows<CR>
+nmap <silent> <leader>ff :Files<CR>
+nmap <silent> <leader>fg :GitFiles<CR>
+nmap <silent> <leader>fb :Buffers<CR>
+nmap <silent> <leader>fw :Windows<CR>
 
 " NERDTree
-nmap <leader>nt :NERDTreeToggle<CR>
+nmap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " Tagbar
-nmap <leader>tb :TagbarToggle<CR>
+nmap <silent> <leader>tb :TagbarToggle<CR>

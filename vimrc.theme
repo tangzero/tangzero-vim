@@ -1,7 +1,12 @@
 " vim: syntax=vim
 
-if (has("termguicolors"))
+if has('termguicolors')
     set termguicolors
+endif
+
+if has('gui_running')
+    set guifont=Fira\ Mono:h14
+    set guioptions=
 endif
 
 set noshowmode
@@ -9,7 +14,4 @@ set number
 set cursorline 
 syntax enable
 colorscheme dracula
-"colorscheme gruvbox
-
-"let g:gruvbox_contrast_dark = 'high'
 
