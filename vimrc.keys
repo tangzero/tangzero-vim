@@ -1,3 +1,5 @@
+" vim: syntax=vim
+
 " Use SpaceBar as leader key
 let mapleader = '\<Space>'
 map <Space> <Leader>

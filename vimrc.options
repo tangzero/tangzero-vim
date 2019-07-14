@@ -1,3 +1,5 @@
+" vim: syntax=vim
+
 let g:tangzero_haskell_enabled = 0
 let g:tangzero_go_enabled = 0
 let g:tangzero_rust_enabled = 0

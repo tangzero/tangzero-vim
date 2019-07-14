@@ -1,5 +1,7 @@
+" vim: syntax=vim
+
 if (has("termguicolors"))
-	set termguicolors
+    set termguicolors
 endif
 
 set noshowmode

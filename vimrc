@@ -1,3 +1,5 @@
+" vim: syntax=vim
+
 source ~/.vim/vimrc.options
 
 if filereadable(expand("~/.vimrc.local.options"))
