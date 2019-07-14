@@ -13,5 +13,5 @@ set noshowmode
 set number
 set cursorline 
 syntax enable
-colorscheme dracula
+colorscheme onedark
 

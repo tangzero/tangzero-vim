@@ -15,3 +15,10 @@ nmap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " Tagbar
 nmap <silent> <leader>tb :TagbarToggle<CR>
+
+" Window size
+nnoremap <leader><left> :vertical resize +5<cr>
+nnoremap <leader><right> :vertical resize -5<cr>
+nnoremap <leader><down> :resize +5<cr>
+nnoremap <leader><up> :resize -5<cr>
+
