@@ -17,7 +17,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
 
 " Add Haskell Language
 if g:tangzero_haskell_enabled
@@ -34,6 +34,11 @@ endif
 " Add Rust Language
 if g:tangzero_rust_enabled
     Plug 'rust-lang/rust.vim'
+endif
+
+" Add Python language
+if g:tangzero_python_enabled
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 endif
 
 " Add Custom Plugins
@@ -65,5 +70,10 @@ endif
 " Rust
 if g:tangzero_rust_enabled
     let g:rustfmt_autosave = 1
+endif
+
+" Python
+if g:tangzero_python_enabled
+    let g:pymode_python = 'python3'
 endif
 
