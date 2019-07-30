@@ -17,6 +17,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'moll/vim-bbye'
 Plug 'ayu-theme/ayu-vim'
 
 " Add Haskell Language
@@ -77,3 +78,4 @@ if g:tangzero_python_enabled
     let g:pymode_python = 'python3'
 endif
 
+source ~/.vim/vimrc.coc
