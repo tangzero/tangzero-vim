@@ -16,7 +16,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'moll/vim-bbye'
 Plug 'ayu-theme/ayu-vim'
 
@@ -86,12 +85,12 @@ endif
 
 " Python
 if g:tangzero_python_enabled
-    let g:pymode_python = 'python3'
-    let g:pymode_lint_checkers = ['pylint', 'pyflakes', 'pep8', 'mccabe']
-    let g:pymode_options_max_line_length = 120
-    let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
     let g:syntastic_python_checkers = []
-    autocmd FileType python autocmd BufWritePre <buffer> call pymode#lint#check()
+    let g:pymode_python = 'python3'
+    let g:pymode_options_max_line_length = 120
+    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+    let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+    let g:pymode_lint_cwindow = 0
+    let g:pymode_lint_unmodified = 1
 endif
 
-"source ~/.vim/vimrc.coc
