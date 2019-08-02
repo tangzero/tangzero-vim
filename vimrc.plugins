@@ -44,10 +44,17 @@ if g:tangzero_rust_enabled
     Plug 'rust-lang/rust.vim'
 endif
 
-" Add Python language
+" Add Python Language
 if g:tangzero_python_enabled
     Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
     Plug 'deoplete-plugins/deoplete-jedi'
+endif
+
+" Add TypeScript Language
+if g:tangzero_typescript_enabled
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    Plug 'Quramy/tsuquyomi'
+    Plug 'leafgarland/typescript-vim'
 endif
 
 " Add Custom Plugins
@@ -92,5 +99,14 @@ if g:tangzero_python_enabled
     let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
     let g:pymode_lint_cwindow = 0
     let g:pymode_lint_unmodified = 1
+endif
+ 
+" TypeScript
+if g:tangzero_typescript_enabled
+    let g:syntastic_typescript_checkers = ['tsuquyomi']
+    let g:tsuquyomi_disable_quickfix = 1
+    let g:tsuquyomi_completion_detail = 1
+    autocmd FileType typescript setlocal completeopt-=preview
+    call deoplete#custom#option('omni_patterns', { 'typescript': ['[^. *\t]\.\w*', '\w\{3,}'] })
 endif
 
