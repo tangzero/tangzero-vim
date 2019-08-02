@@ -15,7 +15,7 @@ cp ~/.vimrc/vimrc.options ~/.vimrc.local.options
 
 echo "source ~/.vim/vimrc" > ~/.vimrc
 echo '" Do not use this file' >> ~/.vimrc
-echo '" Use either .vimrc.local, .vimrc.local.options or .vimrc.plugins'  >> ~/.vimrc
+echo '" Use either .vimrc.local, .vimrc.local.options or .vimrc.local.plugins'  >> ~/.vimrc
 
 # start vim
 vim +set nomore +PlugInstall +PlugClean! +qall
