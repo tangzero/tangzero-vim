@@ -10,8 +10,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # install
 ln -ns ~/.vim ~/.config/nvim
 touch ~/.vimrc.local
-touch ~/.vimrc.local.options
 touch ~/.vimrc.local.plugins
+cp ~/.vimrc/vimrc.options ~/.vimrc.local.options
+
+echo "source ~/.vim/vimrc" > ~/.vimrc
+echo '" Do not use this file' >> ~/.vimrc
+echo '" Use either .vimrc.local, .vimrc.local.options or .vimrc.plugins'  >> ~/.vimrc
 
 # start vim
 vim +set nomore +PlugInstall +PlugClean! +qall

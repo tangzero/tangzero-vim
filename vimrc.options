@@ -5,3 +5,6 @@ let g:tangzero_go_enabled = 0
 let g:tangzero_rust_enabled = 0
 let g:tangzero_python_enabled = 0
 
+"let g:python_host_prog = "/usr/local/bin/python2"
+"let g:python3_host_prog = "/usr/local/bin/python3"
+
