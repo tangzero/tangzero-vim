@@ -29,3 +29,16 @@ nnoremap <leader><up> :resize -5<cr>
 
 " Buffer deletion
 nnoremap <silent> <leader>q :Bdelete<CR>
+
+" Deoplete
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Terminal
+if has('nvim')
+    tnoremap <esc> <c-\><c-n>
+end
