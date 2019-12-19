@@ -11,7 +11,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ln -ns ~/.vim ~/.config/nvim
 touch ~/.vimrc.local
 touch ~/.vimrc.local.plugins
-cp ~/.vimrc/vimrc.options ~/.vimrc.local.options
+cp ~/.vim/vimrc.options ~/.vimrc.local.options
 
 echo "source ~/.vim/vimrc" > ~/.vimrc
 echo '" Do not use this file' >> ~/.vimrc
