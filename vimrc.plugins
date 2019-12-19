@@ -18,6 +18,9 @@ Plug 'tpope/vim-surround'
 Plug 'neomake/neomake'
 Plug 'moll/vim-bbye'
 Plug 'ayu-theme/ayu-vim'
+Plug 'tangzero/terminal.nvim'
+Plug 'cespare/vim-toml'
+Plug 'ryanoasis/vim-devicons'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -42,6 +45,7 @@ endif
 " Add Rust Language
 if g:tangzero_rust_enabled
     Plug 'rust-lang/rust.vim'
+    Plug 'sebastianmarkow/deoplete-rust'
 endif
 
 " Add Python language
@@ -76,6 +80,10 @@ endif
 if g:tangzero_go_enabled
     let g:go_def_mode = 'gopls'
     let g:go_info_mode = 'gopls'
+    let g:go_fmt_command = "goimports"
+
+    call deoplete#custom#var('omni', 'input_patterns', { 'go': '[^. *\t]\.\w*' })
+    autocmd FileType go setlocal completeopt-=preview
 endif
 
 " Rust
@@ -87,10 +95,7 @@ endif
 if g:tangzero_python_enabled
     let g:syntastic_python_checkers = []
     let g:pymode_python = 'python3'
-    let g:pymode_options_max_line_length = 120
-    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-    let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
     let g:pymode_lint_cwindow = 0
-    let g:pymode_lint_unmodified = 1
 endif
+
 
