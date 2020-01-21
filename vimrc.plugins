@@ -21,6 +21,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'tangzero/terminal.nvim'
 Plug 'cespare/vim-toml'
 Plug 'ryanoasis/vim-devicons'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -33,8 +34,6 @@ endif
 " Add Haskell Language
 if g:tangzero_haskell_enabled
     Plug 'neovimhaskell/haskell-vim' 
-    Plug 'alx741/vim-hindent'
-    Plug 'alx741/vim-stylishask'
 endif
 
 " Add Go Language
@@ -45,13 +44,17 @@ endif
 " Add Rust Language
 if g:tangzero_rust_enabled
     Plug 'rust-lang/rust.vim'
-    Plug 'sebastianmarkow/deoplete-rust'
 endif
 
 " Add Python language
 if g:tangzero_python_enabled
     Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-    Plug 'deoplete-plugins/deoplete-jedi'
+endif
+
+" Add C/C++ language
+if g:tangzero_c_enabled
+    Plug 'justmao945/vim-clang'
+    Plug 'rhysd/vim-clang-format'
 endif
 
 " Add Custom Plugins
@@ -66,6 +69,12 @@ filetype plugin indent on
 " Plugins Configuration
 
 let g:deoplete#enable_at_startup = 1
+let g:LanguageClient_serverCommands = { 
+    \   'haskell': ['hie-wrapper', '--lsp'],
+    \   'rust': ['rustup', 'run', 'stable', 'rls'],
+    \   'python': ['pyls'],
+    \   'go': ['gopls'],
+    \ }
 
 " Haskell
 if g:tangzero_haskell_enabled
@@ -74,6 +83,7 @@ if g:tangzero_haskell_enabled
     let g:haskell_indent_case_alternative = 1
     let g:haskell_indent_let_no_in = 0
     autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd BufWritePre *.hs :call LanguageClient#textDocument_formatting_sync()
 endif
 
 " Go
@@ -81,14 +91,11 @@ if g:tangzero_go_enabled
     let g:go_def_mode = 'gopls'
     let g:go_info_mode = 'gopls'
     let g:go_fmt_command = "goimports"
-
-    call deoplete#custom#var('omni', 'input_patterns', { 'go': '[^. *\t]\.\w*' })
-    autocmd FileType go setlocal completeopt-=preview
 endif
 
 " Rust
 if g:tangzero_rust_enabled
-    let g:rustfmt_autosave = 1
+    autocmd BufWritePre *.rs :call LanguageClient#textDocument_formatting_sync()
 endif
 
 " Python
@@ -98,4 +105,12 @@ if g:tangzero_python_enabled
     let g:pymode_lint_cwindow = 0
 endif
 
+" C/C++
+if g:tangzero_c_enabled
+    let g:clang_format#auto_format = 1
+
+    call deoplete#custom#var('omni', 'input_patterns', { 'c': '[^. *\t]\.\w*' })
+    autocmd FileType c setlocal completeopt-=preview
+    autocmd FileType h setlocal completeopt-=preview
+endif
 
