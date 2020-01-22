@@ -94,6 +94,9 @@ let g:go_fmt_command = "goimports"
 let g:pymode_python = 'python3'
 let g:pymode_lint_cwindow = 0
 
+" Javascript
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+
 " C/C++
 call deoplete#custom#var('omni', 'input_patterns', { 'c': '[^. *\t]\.\w*' })
 autocmd FileType c setlocal completeopt-=preview
