@@ -2,7 +2,7 @@
 
 call plug#begin()
 
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -19,9 +19,8 @@ Plug 'neomake/neomake'
 Plug 'moll/vim-bbye'
 Plug 'ayu-theme/ayu-vim'
 Plug 'tangzero/terminal.nvim'
-Plug 'cespare/vim-toml'
 Plug 'ryanoasis/vim-devicons'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
+Plug 'sheerun/vim-polyglot'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -32,30 +31,16 @@ else
 endif
 
 " Add Haskell Language
-if g:tangzero_haskell_enabled
-    Plug 'neovimhaskell/haskell-vim' 
-endif
+Plug 'neovimhaskell/haskell-vim'
 
 " Add Go Language
-if g:tangzero_go_enabled
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-endif
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Add Rust Language
-if g:tangzero_rust_enabled
-    Plug 'rust-lang/rust.vim'
-endif
+Plug 'rust-lang/rust.vim'
 
 " Add Python language
-if g:tangzero_python_enabled
-    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-endif
-
-" Add C/C++ language
-if g:tangzero_c_enabled
-    Plug 'justmao945/vim-clang'
-    Plug 'rhysd/vim-clang-format'
-endif
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Add Custom Plugins
 if filereadable(expand("~/.vimrc.local.plugins"))
@@ -64,53 +49,52 @@ endif
 
 call plug#end()
 
-filetype plugin indent on 
+filetype plugin indent on
 
 " Plugins Configuration
-
-let g:deoplete#enable_at_startup = 1
-let g:LanguageClient_serverCommands = { 
-    \   'haskell': ['hie-wrapper', '--lsp'],
-    \   'rust': ['rustup', 'run', 'stable', 'rls'],
-    \   'python': ['pyls'],
-    \   'go': ['gopls'],
+let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+    \   'rust': ['rls'],
+    \   'haskell': ['hie'],
+    \   'javascript': ['eslint'],
+    \   'c': ['ccpcheck'],
+    \   'cpp': ['ccpcheck'],
+    \ }
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'rust': ['rustfmt'],
+    \   'haskell': ['brittany'],
+    \   'javascript': ['prettier', 'eslint'],
+    \   'c': ['clang-format'],
+    \   'cpp': ['clang-format'],
     \ }
 
+call deoplete#custom#option('sources', {'_': ['ale']})
+
+let g:deoplete#enable_at_startup = 1
+
 " Haskell
-if g:tangzero_haskell_enabled
-    let g:haskell_indent_if = 2
-    let g:haskell_indent_before_where = 2
-    let g:haskell_indent_case_alternative = 1
-    let g:haskell_indent_let_no_in = 0
-    autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd BufWritePre *.hs :call LanguageClient#textDocument_formatting_sync()
-endif
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_case_alternative = 1
+let g:haskell_indent_let_no_in = 0
+autocmd Filetype haskell setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Go
-if g:tangzero_go_enabled
-    let g:go_def_mode = 'gopls'
-    let g:go_info_mode = 'gopls'
-    let g:go_fmt_command = "goimports"
-endif
-
-" Rust
-if g:tangzero_rust_enabled
-    autocmd BufWritePre *.rs :call LanguageClient#textDocument_formatting_sync()
-endif
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
+let g:go_fmt_command = "goimports"
 
 " Python
-if g:tangzero_python_enabled
-    let g:syntastic_python_checkers = []
-    let g:pymode_python = 'python3'
-    let g:pymode_lint_cwindow = 0
-endif
+let g:pymode_python = 'python3'
+let g:pymode_lint_cwindow = 0
 
 " C/C++
-if g:tangzero_c_enabled
-    let g:clang_format#auto_format = 1
-
-    call deoplete#custom#var('omni', 'input_patterns', { 'c': '[^. *\t]\.\w*' })
-    autocmd FileType c setlocal completeopt-=preview
-    autocmd FileType h setlocal completeopt-=preview
-endif
-
+call deoplete#custom#var('omni', 'input_patterns', { 'c': '[^. *\t]\.\w*' })
+autocmd FileType c setlocal completeopt-=preview
+autocmd FileType h setlocal completeopt-=preview

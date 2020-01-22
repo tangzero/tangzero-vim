@@ -5,7 +5,7 @@ if has('termguicolors')
 endif
 
 if has('gui_running')
-    set guifont=FuraCode\ Nerd\ Font:h15
+    set guifont=FuraCodeNerdFontComplete-Bold:h15
     set guioptions=
 endif
 

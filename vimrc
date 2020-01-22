@@ -1,11 +1,5 @@
 " vim: syntax=vim
 
-source ~/.vim/vimrc.options
-
-if filereadable(expand("~/.vimrc.local.options"))
-    source ~/.vimrc.local.options
-endif
-
 source ~/.vim/vimrc.defaults
 source ~/.vim/vimrc.keys
 source ~/.vim/vimrc.plugins
