@@ -36,6 +36,6 @@ nnoremap <silent> <leader><up> :resize -5<cr>
 nnoremap <silent> <leader>q :Bdelete<CR>
 
 " Deoplete
-inoremap <silent> <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent> <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <silent> <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <silent> <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+"inoremap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

@@ -2,6 +2,7 @@
 
 call plug#begin()
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
@@ -21,14 +22,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'tangzero/terminal.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 " Add Haskell Language
 Plug 'neovimhaskell/haskell-vim'
@@ -54,31 +47,10 @@ filetype plugin indent on
 " Plugins Configuration
 
 " ALE
-let g:ale_completion_enabled = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-    \   'rust': ['rls'],
-    \   'haskell': ['hie'],
-    \   'javascript': ['eslint'],
-    \   'c': ['ccpcheck'],
-    \   'cpp': ['ccpcheck'],
-    \ }
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'rust': ['rustfmt'],
-    \   'haskell': ['brittany'],
-    \   'javascript': ['prettier', 'eslint'],
-    \   'c': ['clang-format'],
-    \   'cpp': ['clang-format'],
-    \ }
+source ~/.vim/vimrc.ale
 
-" Deoplete
-call deoplete#custom#option('sources', {'_': ['ale']})
-let g:deoplete#enable_at_startup = 1
+" COC
+source ~/.vim/vimrc.coc
 
 " FZF
 source ~/.vim/vimrc.fzf
@@ -101,8 +73,3 @@ let g:pymode_lint_cwindow = 0
 
 " Javascript
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
-
-" C/C++
-call deoplete#custom#var('omni', 'input_patterns', { 'c': '[^. *\t]\.\w*' })
-autocmd FileType c setlocal completeopt-=preview
-autocmd FileType h setlocal completeopt-=preview
