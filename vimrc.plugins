@@ -52,6 +52,8 @@ call plug#end()
 filetype plugin indent on
 
 " Plugins Configuration
+
+" ALE
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
@@ -74,9 +76,12 @@ let g:ale_fixers = {
     \   'cpp': ['clang-format'],
     \ }
 
+" Deoplete
 call deoplete#custom#option('sources', {'_': ['ale']})
-
 let g:deoplete#enable_at_startup = 1
+
+" FZF
+source ~/.vim/vimrc.fzf
 
 " Haskell
 let g:haskell_indent_if = 2

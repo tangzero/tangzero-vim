@@ -8,16 +8,17 @@ let mapleader = '\<Space>'
 map <silent> <space> <leader>
 
 " Save File
-noremap <silent> <c-s> :update<CR>
-vnoremap <silent> <c-s> <c-c>:update<CR>
-inoremap <silent> <c-s> <c-o>:update<CR>
+map <silent> <c-s> :update<CR>
+vmap <silent> <c-s> <c-c>:update<CR>
+imap <silent> <c-s> <c-o>:update<CR>
 
-" FZF   
+" FZF
 nmap <silent> <leader>ff :Files<CR>
 nmap <silent> <leader>fg :GitFiles<CR>
 nmap <silent> <leader>fb :Buffers<CR>
 nmap <silent> <leader>fw :Windows<CR>
-nmap <silent> <C-p> :GitFiles<CR>
+nmap <silent> <leader>rg :Rg<CR>
+nmap <silent> <C-p> :Files<CR>
 
 " NERDTree
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
@@ -38,4 +39,3 @@ nnoremap <silent> <leader>q :Bdelete<CR>
 inoremap <silent> <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent> <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
