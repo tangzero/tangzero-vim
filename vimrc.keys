@@ -8,23 +8,37 @@ let mapleader = '\<Space>'
 map <silent> <space> <leader>
 
 " Save File
-map <silent> <c-s> :update<CR>
-vmap <silent> <c-s> <c-c>:update<CR>
-imap <silent> <c-s> <c-o>:update<CR>
+map <silent> <c-s> :update<cr>
+vmap <silent> <c-s> <c-c>:update<cr>
+imap <silent> <c-s> <c-o>:update<cr>
 
 " FZF
-nmap <silent> <leader>ff :Files<CR>
-nmap <silent> <leader>fg :GitFiles<CR>
-nmap <silent> <leader>fb :Buffers<CR>
-nmap <silent> <leader>fw :Windows<CR>
-nmap <silent> <leader>rg :Rg<CR>
-nmap <silent> <C-p> :Files<CR>
+nmap <silent> <leader>ff :Files<cr>
+nmap <silent> <leader>fg :GitFiles<cr>
+nmap <silent> <leader>fb :Buffers<cr>
+nmap <silent> <leader>fw :Windows<cr>
+nmap <silent> <leader>rg :Rg<cr>
+
+nmap <silent> <c-p> :Files<cr>
+imap <silent> <c-p> <c-o>:Files<cr>
+
+nmap <silent> <c-x><c-f> :Files<cr>
+nmap <silent> <c-x><c-g> :GitFiles<cr>
+nmap <silent> <c-x><c-b> :Buffers<cr>
+nmap <silent> <c-x><c-w> :Windows<cr>
+nmap <silent> <c-x><c-r> :Rg<cr>
+
+imap <silent> <c-x><c-f> <c-o>:Files<cr>
+imap <silent> <c-x><c-g> <c-o>:GitFiles<cr>
+imap <silent> <c-x><c-b> <c-o>:Buffers<cr>
+imap <silent> <c-x><c-w> <c-o>:Windows<cr>
+imap <silent> <c-x><c-r> <c-o>:Rg<cr>
 
 " NERDTree
-nmap <silent> <leader>nt :NERDTreeToggle<CR>
+nmap <silent> <leader>nt :NERDTreeToggle<cr>
 
 " Tagbar
-nmap <silent> <leader>tb :TagbarToggle<CR>
+nmap <silent> <leader>tb :TagbarToggle<cr>
 
 " Window size
 nnoremap <silent> <leader><left> :vertical resize -5<cr>
@@ -33,9 +47,9 @@ nnoremap <silent> <leader><down> :resize +5<cr>
 nnoremap <silent> <leader><up> :resize -5<cr>
 
 " Buffer deletion
-nnoremap <silent> <leader>q :Bdelete<CR>
+nnoremap <silent> <leader>q :Bdelete<cr>
 
 " Deoplete
 "inoremap <silent> <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "inoremap <silent> <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-"inoremap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"

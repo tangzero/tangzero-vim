@@ -10,6 +10,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'brooth/far.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
@@ -54,6 +55,9 @@ source ~/.vim/vimrc.coc
 " FZF
 source ~/.vim/vimrc.fzf
 
+" NerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Haskell
 let g:haskell_indent_if = 2
 let g:haskell_indent_before_where = 2
@@ -71,4 +75,4 @@ let g:pymode_python = 'python3'
 let g:pymode_lint_cwindow = 0
 
 " Javascript
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --print-width 120'

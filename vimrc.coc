@@ -117,4 +117,4 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "List all coc options
 nnoremap <silent> <c-l>  :<C-u>CocList<cr>
 
-unmap <C-I>
+" unmap <C-I>
