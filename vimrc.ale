@@ -9,15 +9,20 @@ let g:ale_sign_warning = '⚠️?'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+let g:ale_go_golangci_lint_options = '--fast'
+
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
+    \   'kotlin': ['ktlint'],
     \   'javascript': ['eslint'],
     \   'yaml': ['yamllint'],
+    \   'go': ['golangci-lint'],
     \ }
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'kotlin': ['ktlint'],
     \   'javascript': ['prettier', 'eslint'],
     \   'yaml': ['prettier'],
     \   'haskell': ['brittany'],

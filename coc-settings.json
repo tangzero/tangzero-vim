@@ -4,7 +4,11 @@
     "diagnostic.warningSign": "⚠️",
     "diagnostic.infoSign": "ℹ️",
     "diagnostic.hintSign": "💡",
+    "java.trace.server": "verbose",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
     "coc.preferences.formatOnSaveFiletypes": [
+        "kotlin",
+        "java",
         "json",
         "jsonc",
         "rust",
@@ -12,6 +16,12 @@
         "typescript"
     ],
     "languageserver": {
+        "kotlin": {
+            "command": "kotlin-language-server",
+            "filetypes": [
+                "kotlin"
+            ]
+        },
         "haskell": {
             "command": "hie-wrapper",
             "args": [
