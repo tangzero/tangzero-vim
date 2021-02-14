@@ -3,6 +3,10 @@ TangZero Vim
 
 # Setup (OSX)
 
+## Tools
+
+    brew install fzf bat
+
 ## Python
 
     brew install python

@@ -22,7 +22,7 @@ let g:ale_fixers = {
     \   'kotlin': ['ktlint'],
     \   'javascript': ['prettier', 'eslint'],
     \   'yaml': ['prettier'],
-    \   'haskell': ['brittany'],
+    \   'haskell': ['hindent', 'stylish-haskell'],
     \   'c': ['clang-format'],
     \   'cpp': ['clang-format'],
     \ }

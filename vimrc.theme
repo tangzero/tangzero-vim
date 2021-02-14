@@ -5,13 +5,13 @@ if has('termguicolors')
 endif
 
 if has('gui_running')
-    set guifont=FuraCodeNerdFontComplete-Bold:h15
+    set guifont=FiraCodeNerdFontCompleteM-Medium:h16
     set guioptions=
 endif
 
 set noshowmode
 set number
-set cursorline 
+set cursorline
 syntax enable
 
 "let ayucolor="light"  " for light version of theme
